@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dashboard Financeiro: gerencie receitas e despesas com filtros por categoria e gráficos.">
+  <title>Dashboard Financeiro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>💰 Dashboard Financeiro</h1>
+    <p>Controle suas receitas e despesas em um só lugar.</p>
+  </header>
+
+  <main class="container">
+    <!-- Resumo -->
+    <section class="resumo" aria-label="Resumo financeiro">
+      <article class="card card-receita">
+        <h2>Receitas</h2>
+        <p id="total-receitas" class="valor">R$ 0,00</p>
+      </article>
+      <article class="card card-despesa">
+        <h2>Despesas</h2>
+        <p id="total-despesas" class="valor">R$ 0,00</p>
+      </article>
+      <article class="card card-saldo">
+        <h2>Saldo</h2>
+        <p id="saldo" class="valor">R$ 0,00</p>
+      </article>
+    </section>
+
+    <!-- Cadastro -->
+    <section class="painel" aria-labelledby="titulo-cadastro">
+      <h2 id="titulo-cadastro">Nova transação</h2>
+      <form id="form-transacao" class="form-grid" autocomplete="off">
+        <div class="campo campo-largo">
+          <label for="descricao">Descrição</label>
+          <input type="text" id="descricao" maxlength="60" placeholder="Ex.: Supermercado" required>
+        </div>
+        <div class="campo">
+          <label for="valor">Valor (R$)</label>
+          <input type="number" id="valor" min="0.01" step="0.01" placeholder="0,00" required>
+        </div>
+        <div class="campo">
+          <label for="tipo">Tipo</label>
+          <select id="tipo">
+            <option value="receita">Receita</option>
+            <option value="despesa" selected>Despesa</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="categoria">Categoria</label>
+          <select id="categoria"></select>
+        </div>
+        <div class="campo">
+          <label for="data">Data</label>
+          <input type="date" id="data" required>
+        </div>
+        <div class="campo campo-botao">
+          <button type="submit" class="btn btn-primario">Adicionar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Filtros -->
+    <section class="painel" aria-labelledby="titulo-filtros">
+      <h2 id="titulo-filtros">Filtros</h2>
+      <div class="form-grid filtros">
+        <div class="campo">
+          <label for="filtro-tipo">Tipo</label>
+          <select id="filtro-tipo">
+            <option value="todos">Todos</option>
+            <option value="receita">Receitas</option>
+            <option value="despesa">Despesas</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="filtro-categoria">Categoria</label>
+          <select id="filtro-categoria"></select>
+        </div>
+        <div class="campo">
+          <label for="filtro-mes">Mês</label>
+          <input type="month" id="filtro-mes">
+        </div>
+        <div class="campo campo-botao">
+          <button type="button" id="limpar-filtros" class="btn btn-secundario">Limpar filtros</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gráficos -->
+    <section class="graficos" aria-label="Gráficos">
+      <p id="aviso-chart" class="aviso" hidden>
+        Não foi possível carregar a biblioteca Chart.js. Verifique sua conexão com a internet para ver os gráficos.
+      </p>
+      <article class="painel">
+        <h2>Despesas por categoria</h2>
+        <div class="grafico-box">
+          <canvas id="grafico-categorias" aria-label="Gráfico de despesas por categoria" role="img"></canvas>
+          <p id="vazio-categorias" class="vazio">Sem despesas para exibir.</p>
+        </div>
+      </article>
+      <article class="painel">
+        <h2>Receitas x Despesas por mês</h2>
+        <div class="grafico-box">
+          <canvas id="grafico-mensal" aria-label="Gráfico de receitas e despesas por mês" role="img"></canvas>
+          <p id="vazio-mensal" class="vazio">Sem dados para exibir.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- Lista -->
+    <section class="painel" aria-labelledby="titulo-lista">
+      <h2 id="titulo-lista">Transações <span id="contagem" class="contagem"></span></h2>
+      <div class="tabela-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Descrição</th>
+              <th>Categoria</th>
+              <th>Tipo</th>
+              <th class="direita">Valor</th>
+              <th class="direita">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-corpo"></tbody>
+        </table>
+      </div>
+      <p id="sem-transacoes" class="vazio-lista">Nenhuma transação encontrada.</p>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Dashboard Financeiro · Os dados ficam salvos apenas no seu navegador (localStorage).</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

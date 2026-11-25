@@ -1,0 +1,353 @@
+:root {
+  --bg: #f1f5f9;
+  --surface: #ffffff;
+  --texto: #0f172a;
+  --texto-suave: #64748b;
+  --borda: #e2e8f0;
+  --primaria: #4f46e5;
+  --primaria-escura: #4338ca;
+  --receita: #059669;
+  --despesa: #dc2626;
+  --raio: 12px;
+  --sombra: 0 1px 3px rgba(15, 23, 42, 0.08), 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+.topo {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.topo h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.9rem;
+}
+
+.topo p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Resumo */
+.resumo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 1.1rem 1.25rem;
+  border-left: 5px solid var(--primaria);
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--texto-suave);
+}
+
+.card .valor {
+  margin: 0.35rem 0 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.card-receita {
+  border-left-color: var(--receita);
+}
+
+.card-receita .valor {
+  color: var(--receita);
+}
+
+.card-despesa {
+  border-left-color: var(--despesa);
+}
+
+.card-despesa .valor {
+  color: var(--despesa);
+}
+
+.card-saldo .valor.positivo {
+  color: var(--receita);
+}
+
+.card-saldo .valor.negativo {
+  color: var(--despesa);
+}
+
+/* Painéis */
+.painel {
+  background: var(--surface);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 1.25rem;
+}
+
+.painel h2 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+}
+
+.contagem {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--texto-suave);
+}
+
+/* Formulários */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.9rem;
+  align-items: end;
+}
+
+.filtros {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.campo-largo {
+  grid-column: span 2;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+input,
+select {
+  width: 100%;
+  font: inherit;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--texto);
+}
+
+input:focus,
+select:focus,
+.btn:focus-visible {
+  outline: 2px solid var(--primaria);
+  outline-offset: 1px;
+}
+
+.btn {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.15s ease;
+}
+
+.btn-primario {
+  background: var(--primaria);
+  color: #fff;
+}
+
+.btn-primario:hover {
+  background: var(--primaria-escura);
+}
+
+.btn-secundario {
+  background: #e2e8f0;
+  color: var(--texto);
+}
+
+.btn-secundario:hover {
+  background: #cbd5e1;
+}
+
+/* Gráficos */
+.graficos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.graficos .aviso {
+  grid-column: 1 / -1;
+}
+
+.grafico-box {
+  position: relative;
+  height: 300px;
+}
+
+.vazio {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: var(--texto-suave);
+  pointer-events: none;
+}
+
+.aviso {
+  margin: 0;
+  padding: 0.8rem 1rem;
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: 8px;
+}
+
+/* Tabela */
+.tabela-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th,
+td {
+  padding: 0.7rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--borda);
+}
+
+th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-suave);
+}
+
+.direita {
+  text-align: right;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.badge-receita {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge-despesa {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.valor-receita {
+  color: var(--receita);
+  font-weight: 600;
+}
+
+.valor-despesa {
+  color: var(--despesa);
+  font-weight: 600;
+}
+
+.btn-excluir {
+  background: none;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-excluir:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.vazio-lista {
+  text-align: center;
+  color: var(--texto-suave);
+  margin: 1rem 0 0;
+}
+
+.rodape {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .form-grid,
+  .filtros {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .graficos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .resumo {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid,
+  .filtros {
+    grid-template-columns: 1fr;
+  }
+
+  .campo-largo {
+    grid-column: auto;
+  }
+
+  .topo h1 {
+    font-size: 1.5rem;
+  }
+}
