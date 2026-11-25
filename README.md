@@ -1,25 +1,25 @@
-Dashboard Financeiro
+dashboard financeiro
 
-Projeto que fiz para controlar receitas e despesas direto no navegador. Dá para cadastrar as transações, filtrar por categoria e acompanhar tudo em gráficos. Funciona bem no celular também.
+projeto que fiz para controlar receitas e despesas direto no navegador. dá para cadastrar as transações, filtrar por categoria e acompanhar tudo em gráficos. funciona bem no celular também.
 
-Feito com JavaScript, HTML5, CSS3 e Chart.js.
+feito com JavaScript, HTML5, CSS3 e Chart.js.
 
-O que dá para fazer-
+o que dá para fazer-
 
-Cadastrar receitas e despesas com descrição, valor, categoria e data
-Ver o total de receitas, de despesas e o saldo
-Filtrar por tipo, categoria e mês
-Ver as despesas por categoria e o comparativo de receitas e despesas por mês
+cadastrar receitas e despesas com descrição, valor, categoria e data
+ver o total de receitas, de despesas e o saldo
+filtrar por tipo, categoria e mês
+ver as despesas por categoria e o comparativo de receitas e despesas por mês
 
-Excluir transações-
-Os dados ficam salvos no próprio navegador (localStorage), então não precisa de banco de dados nem de servidor.
+excluir transações-
+os dados ficam salvos no próprio navegador (localstorage), então não precisa de banco de dados nem de servidor.
 
-Como rodar
-Baixe os arquivos e abra o index.html no navegador. Só isso.
+como rodar-
+baixe os arquivos e abra o index.html no navegador. só isso.
 
-Os gráficos usam o Chart.js por CDN, então precisa estar conectado à internet para eles aparecerem.
+os gráficos usam o Chart.js por CDN, então precisa estar conectado à internet para eles aparecerem.
 
-Arquivos
+arquivos
 index.html: estrutura da página
 style.css: estilo e responsividade
 script.js: toda a lógica e os gráficos
