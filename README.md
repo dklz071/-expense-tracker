@@ -12,7 +12,7 @@ filtrar por tipo, categoria e mês
 ver as despesas por categoria e o comparativo de receitas e despesas por mês
 
 excluir transações-
-os dados ficam salvos no próprio navegador (localstorage), então não precisa de banco de dados nem de servidor.
+os dados ficam salvos no próprio navegador (localstorage), então não precisa de banco de dados nem de servidor. 
 
 como rodar-
 baixe os arquivos e abra o index.html no navegador. só isso.
